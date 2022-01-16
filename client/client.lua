@@ -4,20 +4,20 @@ local txd = GetPedheadshotTxdString(handle)
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
-            local letSleep = true
-            local playerPed = PlayerPedId()
-            local playerPos = GetEntityCoords(playerPed)
-            if #(playerPos - vector3(cfg.sz.x, cfg.sz.y, cfg.sz.z)) < 20 then
+          local letSleep = true
+          local playerPed = PlayerPedId()
+          local playerPos = GetEntityCoords(playerPed)
+          if #(playerPos - vector3(cfg.sz.x, cfg.sz.y, cfg.sz.z)) < 20 then
                 letSleep = false
                 DrawMarker(27, cfg.sz.x, cfg.sz.y, cfg.sz.z, 0.0, 0.0, 0.0, 0.0, 180.0, 0.0, 40.0, 40.0, 40.0, 255, 0, 0, 50, false, true, 2, nil, nil, false)
 								DisablePlayerFiring(playerPed, false)
-           end
-           if isInvincible then
-             SetPlayerInvincible(playerPed, isInvincible)
-           end
-           if letSleep then
-               Citizen.Wait(500)
-           end
+          end
+          if isInvincible then
+            SetPlayerInvincible(playerPed, isInvincible)
+          end
+          if letSleep then
+              Citizen.Wait(500)
+          end
     end
 end)
 
