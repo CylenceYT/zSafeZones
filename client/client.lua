@@ -1,18 +1,5 @@
-local ped = PlayerPedId()
 local currentPos = GetEntityCoords(ped)
 local txd = GetPedheadshotTxdString(handle)
-
---local v1 = config.SZ
---local v2 = config.BLIPLOCAT
---local v3 = config.TXTLOCAT
---local v4 = config.BLIPLABEL
---local v5 = config.BLIPICON
-
-local isInvincible = false
-
- function toggleInvincible()
-   isInvincible = not isInvincible
- end
 
 Citizen.CreateThread(function()
     while true do
@@ -44,11 +31,9 @@ EndTextCommandSetBlipName(blip)
 
 RegisterCommand('sz', function()
 	SetEntityCoords(ped, cfg.tp.x, cfg.tp.y, cfg.tp.x, false, false, false, true)
-	if true then
 		TriggerEvent("chat:addMessage", {
             		args={"You have been sent to a ^2Safe Zone"}
 		})
-	end
 	Wait(100)
 end)
 
